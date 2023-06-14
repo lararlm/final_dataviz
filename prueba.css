@@ -65,7 +65,7 @@ body {
 }
 
 .circle:hover {
-    opacity: 0.6; /* Increase the opacity value */
+    opacity: 0.6; /* Increase the opacity value laaol*/
 }
 
 .circle:hover .text {
@@ -83,4 +83,12 @@ body {
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s;
+}
+
+.slider-celeste {
+    fill: rgb(28, 161, 92);
+}
+
+.slider-pink {
+    fill: red;
 }
