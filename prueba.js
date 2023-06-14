@@ -1,5 +1,15 @@
 const scroller = scrollama();
 
+const container4 = document.getElementById('container4');
+
+////////////////////mi esfera
+const mi_circle = document.createElement('div');
+mi_circle.classList.add('mycircle');
+mi_circle.style.backgroundColor = "white";
+
+container4.appendChild(mi_circle)
+///////////////////
+
 const container = document.getElementById('container');
 
 // Array of circle texts
@@ -26,6 +36,7 @@ for (let i = 0; i < circleTexts.length; i++) {
   circle.addEventListener('click', () => {
     clickedElement = circleColors[i % circleColors.length];;
     console.log('Clicked color:', clickedElement);
+    mi_circle.style.backgroundColor = clickedElement;
     window.scrollTo(0, document.getElementById('section-1').offsetTop);
 });
 }
@@ -50,12 +61,13 @@ scroller
     console.log(`Step ${index} exited`);
   });
 
-////////////
+////////////danza
 const imageContainer = document.getElementById('imageContainer');
 imageContainer.classList.add('image-container');
 
 // Array of image file names
 const imageFiles = ['./imagenes/estrella4.png', './imagenes/estrella6.png', './imagenes/estrella8.png', './imagenes/estrella10.png'];
+let danza = null;
 
 const img = document.createElement('img');
 img.src = './imagenes/estrella4.png';
@@ -63,6 +75,7 @@ img.alt = './imagenes/estrella4.png';
 img.classList.add('img-0');
 imageContainer.appendChild(img);
 img.addEventListener('click', () => {
+    danza = 1;
     window.scrollTo(0, document.getElementById('section-2').offsetTop);
 });
 
@@ -72,7 +85,8 @@ img1.alt = './imagenes/estrella6.png';
 img1.classList.add('img-1');
 imageContainer.appendChild(img1);
 img1.addEventListener('click', () => {
-    window.scrollTo(0, document.getElementById('section-2').offsetTop);
+  danza = 2;
+  window.scrollTo(0, document.getElementById('section-2').offsetTop);
 });
 
 const img2 = document.createElement('img');
@@ -81,7 +95,8 @@ img2.alt = './imagenes/estrella8.png';
 img2.classList.add('img-2');
 imageContainer.appendChild(img2);
 img2.addEventListener('click', () => {
-    window.scrollTo(0, document.getElementById('section-2').offsetTop);
+  danza = 3;
+  window.scrollTo(0, document.getElementById('section-2').offsetTop);
 });
 
 const img3 = document.createElement('img');
@@ -90,14 +105,14 @@ img3.alt = './imagenes/estrella10.png';
 img3.classList.add('img-3');
 imageContainer.appendChild(img3);
 img3.addEventListener('click', () => {
-    window.scrollTo(0, document.getElementById('section-2').offsetTop);
+  danza = 4;
+  window.scrollTo(0, document.getElementById('section-2').offsetTop);
 });
 //document.body.appendChild(imageContainer);
 
 /////////barras
-
-const container3 = document.createElement('div');
-document.body.appendChild(container3);
+const container3 = document.getElementById('container3');
+//const container3 = document.createElement('div');
 
 // Bar Graph 1
 const canvas1 = document.createElement('canvas');
@@ -221,12 +236,58 @@ slider2.addEventListener('input', handleSliderChange2);
 slider2.classList.add('slider-celeste');
 container3.appendChild(slider2);
 
-///////////tu esfera
-const container4 = document.createElement('div');
-document.body.appendChild(container4);
+//////////explicit
 
-const mi_circle = document.createElement('div');
-mi_circle.classList.add('circle');
-mi_circle.style.backgroundColor = clickedElement;
+const container5 = document.getElementById('container5');
 
-container4.appendChild(mi_circle)
+
+const truei = document.createElement('img');
+truei.src = './imagenes/true.png';
+truei.alt = './imagenes/true.png';
+truei.classList.add('truei');
+container5.appendChild(truei);
+truei.addEventListener('click', () => {
+    if(danza ==1){
+      img.style.opacity = 0.5;
+      mi_circle.appendChild(img);
+    }
+    if(danza ==3){
+      img2.style.opacity = 0;
+      mi_circle.appendChild(img2);
+    }
+    if(danza ==4){
+      img3.style.opacity = 0;
+      mi_circle.appendChild(img3);
+    }
+    if(danza ==2){
+      img1.style.opacity = 0;
+      mi_circle.appendChild(img1);
+    }
+    window.scrollTo(0, document.getElementById('section-2').offsetTop);
+});
+
+const falsei = document.createElement('img');
+falsei.src = './imagenes/false.png';
+falsei.alt = './imagenes/false.png';
+falsei.classList.add('falsei');
+container5.appendChild(falsei);
+falsei.addEventListener('click', () => {
+  if(danza ==1){
+    img.style.opacity = 1;
+    mi_circle.appendChild(img);
+  }
+  if(danza ==3){
+    img2.style.opacity = 1;
+    mi_circle.appendChild(img2);
+  }
+  if(danza ==4){
+    img3.style.opacity = 1;
+    mi_circle.appendChild(img3);
+  }
+  if(danza ==2){
+    img1.style.opacity = 1;
+    mi_circle.appendChild(img1);
+  }
+  window.scrollTo(0, document.getElementById('section-2').offsetTop);
+});
+
