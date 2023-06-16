@@ -108,6 +108,8 @@ img3.addEventListener('click', () => {
   danza = 4;
   window.scrollTo(0, document.getElementById('section-2').offsetTop);
 });
+
+
 //document.body.appendChild(imageContainer);
 
 /////////barras
@@ -118,6 +120,7 @@ const container3 = document.getElementById('container3');
 const canvas1 = document.createElement('canvas');
 canvas1.width = 500;
 canvas1.height = 200;
+canvas1.classList.add('canvas1')
 container3.appendChild(canvas1);
 
 const ctx1 = canvas1.getContext('2d');
@@ -130,13 +133,32 @@ function drawBarGraph1() {
   ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
 
   const barHeight = 80;
-  const barWidth = sliderValue1 * maxBarWidth1 / 100; // Adjust the value to control the scaling of the bars
-  const barX = 20; // Adjust the value to control the horizontal position of the bars
+  const barWidth = sliderValue1 * maxBarWidth1 / 100;
+  const barX = 20;
   const barY = (canvas1.height - barHeight) / 2;
+  const cornerRadius = 10; // Adjust the value to control the roundness of the corners
 
-  ctx1.fillStyle = '#E73BA5';
-  ctx1.fillRect(barX, barY, barWidth, barHeight);
+  ctx1.fillStyle = '#EC0E49';
 
+  if (sliderValue1 === 0) {
+    // Handle special case when bar is at 0%
+    ctx1.fillRect(barX, barY, 0, barHeight);
+  } 
+  else {
+    // Draw rounded rectangle
+    ctx1.beginPath();
+    ctx1.moveTo(barX + cornerRadius, barY);
+    ctx1.lineTo(barX + barWidth - cornerRadius, barY);
+    ctx1.quadraticCurveTo(barX + barWidth, barY, barX + barWidth, barY + cornerRadius);
+    ctx1.lineTo(barX + barWidth, barY + barHeight - cornerRadius);
+    ctx1.quadraticCurveTo(barX + barWidth, barY + barHeight, barX + barWidth - cornerRadius, barY + barHeight);
+    ctx1.lineTo(barX + cornerRadius, barY + barHeight);
+    ctx1.quadraticCurveTo(barX, barY + barHeight, barX, barY + barHeight - cornerRadius);
+    ctx1.lineTo(barX, barY + cornerRadius);
+    ctx1.quadraticCurveTo(barX, barY, barX + cornerRadius, barY);
+    ctx1.closePath();
+    ctx1.fill();
+  }
   // Draw x-axis ticks and labels
   ctx1.strokeStyle = 'black';
   ctx1.lineWidth = 1;
@@ -148,7 +170,7 @@ function drawBarGraph1() {
   for (let i = 0; i < xTicks1.length; i++) {
     const tickValue = xTicks1[i];
     const tickX = barX + (i * tickSpacing1);
-    const tickY = barY + barHeight + 10; // Position the tick labels below the bars
+    const tickY = barY + barHeight + 10;
 
     ctx1.beginPath();
     ctx1.moveTo(tickX, tickY - 5);
@@ -191,12 +213,31 @@ function drawBarGraph2() {
   ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
 
   const barHeight = 80;
-  const barWidth = sliderValue2 * maxBarWidth2 / 100; // Adjust the value to control the scaling of the bars
-  const barX = 20; // Adjust the value to control the horizontal position of the bars
+  const barWidth = sliderValue2 * maxBarWidth2 / 100;
+  const barX = 20;
   const barY = (canvas2.height - barHeight) / 2;
+  const cornerRadius = 10;
 
-  ctx2.fillStyle = '#5BDCE1';
-  ctx2.fillRect(barX, barY, barWidth, barHeight);
+  ctx2.fillStyle = '#15C386';
+
+  if (sliderValue2 === 0) {
+    // Handle special case when bar is at 0%
+    ctx2.fillRect(barX, barY, 0, barHeight);
+  } else {
+    // Draw rounded rectangle
+    ctx2.beginPath();
+    ctx2.moveTo(barX + cornerRadius, barY);
+    ctx2.lineTo(barX + barWidth - cornerRadius, barY);
+    ctx2.quadraticCurveTo(barX + barWidth, barY, barX + barWidth, barY + cornerRadius);
+    ctx2.lineTo(barX + barWidth, barY + barHeight - cornerRadius);
+    ctx2.quadraticCurveTo(barX + barWidth, barY + barHeight, barX + barWidth - cornerRadius, barY + barHeight);
+    ctx2.lineTo(barX + cornerRadius, barY + barHeight);
+    ctx2.quadraticCurveTo(barX, barY + barHeight, barX, barY + barHeight - cornerRadius);
+    ctx2.lineTo(barX, barY + cornerRadius);
+    ctx2.quadraticCurveTo(barX, barY, barX + cornerRadius, barY);
+    ctx2.closePath();
+    ctx2.fill();
+  }
 
   // Draw x-axis ticks and labels
   ctx2.strokeStyle = 'black';
@@ -209,7 +250,7 @@ function drawBarGraph2() {
   for (let i = 0; i < xTicks2.length; i++) {
     const tickValue = xTicks2[i];
     const tickX = barX + (i * tickSpacing2);
-    const tickY = barY + barHeight + 10; // Position the tick labels below the bars
+    const tickY = barY + barHeight + 10;
 
     ctx2.beginPath();
     ctx2.moveTo(tickX, tickY - 5);
@@ -219,6 +260,7 @@ function drawBarGraph2() {
     ctx2.fillText(tickValue, tickX, tickY + 10);
   }
 }
+
 
 function handleSliderChange2(event) {
   sliderValue2 = event.target.value;
