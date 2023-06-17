@@ -8,6 +8,48 @@ mi_circle.classList.add('mycircle');
 mi_circle.style.backgroundColor = "white";
 
 container4.appendChild(mi_circle)
+
+const op1 = document.createElement('img');
+op1.src = './imagenes/estrella4.png';
+op1.alt = './imagenes/estrella4.png';
+op1.classList.add('op1');
+
+const op2 = document.createElement('img');
+op2.src = './imagenes/estrella6.png';
+op2.alt = './imagenes/estrella6.png';
+op2.classList.add('op1');
+
+const op3 = document.createElement('img');
+op3.src = './imagenes/estrella8.png';
+op3.alt = './imagenes/estrella8.png';
+op3.classList.add('op1');
+
+const op4 = document.createElement('img');
+op4.src = './imagenes/estrella10.png';
+op4.alt = './imagenes/estrella10.png';
+op4.classList.add('op1');
+
+const op5 = document.createElement('img');
+op5.src = './imagenes/estrella4b.png';
+op5.alt = './imagenes/estrella4b.png';
+op5.classList.add('op1');
+
+const op6 = document.createElement('img');
+op6.src = './imagenes/estrella6b.png';
+op6.alt = './imagenes/estrella6b.png';
+op6.classList.add('op1');
+
+const op7 = document.createElement('img');
+op7.src = './imagenes/estrella8b.png';
+op7.alt = './imagenes/estrella8b.png';
+op7.classList.add('op1');
+
+const op8 = document.createElement('img');
+op8.src = './imagenes/estrella10b.png';
+op8.alt = './imagenes/estrella10b.png';
+op8.classList.add('op1');
+
+
 ///////////////////
 
 const container = document.getElementById('container');
@@ -131,14 +173,13 @@ let sliderValue1 = 0;
 
 function drawBarGraph1() {
   ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
-
-  const barHeight = 80;
+  const barHeight = 60;
   const barWidth = sliderValue1 * maxBarWidth1 / 100;
   const barX = 20;
   const barY = (canvas1.height - barHeight) / 2;
   const cornerRadius = 10; // Adjust the value to control the roundness of the corners
 
-  ctx1.fillStyle = '#EC0E49';
+  ctx1.fillStyle = '#EDAE29';
 
   if (sliderValue1 === 0) {
     // Handle special case when bar is at 0%
@@ -162,7 +203,7 @@ function drawBarGraph1() {
   // Draw x-axis ticks and labels
   ctx1.strokeStyle = 'black';
   ctx1.lineWidth = 1;
-  ctx1.font = '12px Arial';
+  ctx1.font = '13px Trebuchet MS';
   ctx1.textAlign = 'center';
   ctx1.textBaseline = 'top';
   ctx1.fillStyle = 'black';
@@ -212,13 +253,13 @@ let sliderValue2 = 0;
 function drawBarGraph2() {
   ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
 
-  const barHeight = 80;
+  const barHeight = 60;
   const barWidth = sliderValue2 * maxBarWidth2 / 100;
   const barX = 20;
   const barY = (canvas2.height - barHeight) / 2;
   const cornerRadius = 10;
 
-  ctx2.fillStyle = '#15C386';
+  ctx2.fillStyle = '#10A7A0';
 
   if (sliderValue2 === 0) {
     // Handle special case when bar is at 0%
@@ -242,7 +283,7 @@ function drawBarGraph2() {
   // Draw x-axis ticks and labels
   ctx2.strokeStyle = 'black';
   ctx2.lineWidth = 1;
-  ctx2.font = '12px Arial';
+  ctx2.font = '13px Trebuchet MS';
   ctx2.textAlign = 'center';
   ctx2.textBaseline = 'top';
   ctx2.fillStyle = 'black';
@@ -282,7 +323,6 @@ container3.appendChild(slider2);
 
 const container5 = document.getElementById('container5');
 
-
 const truei = document.createElement('img');
 truei.src = './imagenes/true.png';
 truei.alt = './imagenes/true.png';
@@ -290,20 +330,16 @@ truei.classList.add('truei');
 container5.appendChild(truei);
 truei.addEventListener('click', () => {
     if(danza ==1){
-      img.style.opacity = 0.5;
-      mi_circle.appendChild(img);
+      mi_circle.appendChild(op5);
     }
     if(danza ==3){
-      img2.style.opacity = 0;
-      mi_circle.appendChild(img2);
+      mi_circle.appendChild(op7);
     }
     if(danza ==4){
-      img3.style.opacity = 0;
-      mi_circle.appendChild(img3);
+      mi_circle.appendChild(op8);
     }
     if(danza ==2){
-      img1.style.opacity = 0;
-      mi_circle.appendChild(img1);
+      mi_circle.appendChild(op6);
     }
     window.scrollTo(0, document.getElementById('section-2').offsetTop);
 });
@@ -316,20 +352,22 @@ container5.appendChild(falsei);
 falsei.addEventListener('click', () => {
   if(danza ==1){
     img.style.opacity = 1;
-    mi_circle.appendChild(img);
+    mi_circle.appendChild(op1);
   }
   if(danza ==3){
     img2.style.opacity = 1;
-    mi_circle.appendChild(img2);
+    mi_circle.appendChild(op3);
   }
   if(danza ==4){
     img3.style.opacity = 1;
-    mi_circle.appendChild(img3);
+    mi_circle.appendChild(op4);
   }
   if(danza ==2){
     img1.style.opacity = 1;
-    mi_circle.appendChild(img1);
+    mi_circle.appendChild(op2);
   }
   window.scrollTo(0, document.getElementById('section-2').offsetTop);
 });
+
+
 
