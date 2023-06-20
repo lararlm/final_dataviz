@@ -55,7 +55,7 @@ op8.classList.add('op1');
 const container = document.getElementById('container');
 
 // Array of circle texts
-const circleTexts = ['Alt Rock', 'Art Pop', 'Dance Pop','Electro Pop', ' Tango', 'R&B', 'Hip Hop', 'Psychedelic Pop'];
+const circleTexts = ['Alt Rock', 'Art Pop', 'Dance Pop','Electro Pop', ' Rock', 'R&B', 'Hip Hop', 'Psychedelic Pop'];
 const circleColors = ['#022E79', '#710461', '#EC0E49', '#E87032','#05732A','#15C386', '#A9DA6E','#FFEF5B'];
 
 let clickedElement = null;
@@ -76,10 +76,10 @@ for (let i = 0; i < circleTexts.length; i++) {
 
   // Add click event listener to circles
   circle.addEventListener('click', () => {
-    clickedElement = circleColors[i % circleColors.length];;
-    console.log('Clicked color:', clickedElement);
+    clickedElement = circleColors[i % circleColors.length];
     mi_circle.style.backgroundColor = clickedElement;
-    window.scrollTo(0, document.getElementById('section-1').offsetTop);
+    var section1 = document.getElementById("section-1");
+    section1.scrollIntoView({ behavior: 'smooth' });
 });
 }
 
@@ -118,7 +118,8 @@ img.classList.add('img-0');
 imageContainer.appendChild(img);
 img.addEventListener('click', () => {
     danza = 1;
-    window.scrollTo(0, document.getElementById('section-2').offsetTop);
+    var section2 = document.getElementById("section-2");
+    section2.scrollIntoView({ behavior: 'smooth' });
 });
 
 const img1 = document.createElement('img');
@@ -128,7 +129,8 @@ img1.classList.add('img-1');
 imageContainer.appendChild(img1);
 img1.addEventListener('click', () => {
   danza = 2;
-  window.scrollTo(0, document.getElementById('section-2').offsetTop);
+  var section2 = document.getElementById("section-2");
+  section2.scrollIntoView({ behavior: 'smooth' });
 });
 
 const img2 = document.createElement('img');
@@ -138,7 +140,8 @@ img2.classList.add('img-2');
 imageContainer.appendChild(img2);
 img2.addEventListener('click', () => {
   danza = 3;
-  window.scrollTo(0, document.getElementById('section-2').offsetTop);
+  var section2 = document.getElementById("section-2");
+  section2.scrollIntoView({ behavior: 'smooth' });
 });
 
 const img3 = document.createElement('img');
@@ -148,7 +151,8 @@ img3.classList.add('img-3');
 imageContainer.appendChild(img3);
 img3.addEventListener('click', () => {
   danza = 4;
-  window.scrollTo(0, document.getElementById('section-2').offsetTop);
+  var section2 = document.getElementById("section-2");
+  section2.scrollIntoView({ behavior: 'smooth' });
 });
 
 
@@ -224,12 +228,15 @@ function drawBarGraph1() {
 
 function handleSliderChange1(event) {
   sliderValue1 = event.target.value;
+  pop = event.target.value;
+  console.log(pop)
   drawBarGraph1();
 }
 
 drawBarGraph1();
 
 const slider1 = document.createElement('input');
+let pop = 0;
 slider1.type = 'range';
 slider1.min = 0;
 slider1.max = 100;
@@ -305,12 +312,14 @@ function drawBarGraph2() {
 
 function handleSliderChange2(event) {
   sliderValue2 = event.target.value;
+  acoust = event.target.value;
   drawBarGraph2();
 }
 
 drawBarGraph2();
 
 const slider2 = document.createElement('input');
+let acoust = 0;
 slider2.type = 'range';
 slider2.min = 0;
 slider2.max = 100;
@@ -318,6 +327,20 @@ slider2.value = sliderValue2;
 slider2.addEventListener('input', handleSliderChange2);
 slider2.classList.add('slider-celeste');
 container3.appendChild(slider2);
+
+
+var button = document.createElement("button");
+button.textContent = "Next";
+button.classList.add('boton')
+
+// Add click event listener to scroll to section2
+button.addEventListener("click", function() {
+  var section3 = document.getElementById("section-3");
+  section3.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Append the button to the body
+container3.appendChild(button);
 
 //////////explicit
 
@@ -341,7 +364,8 @@ truei.addEventListener('click', () => {
     if(danza ==2){
       mi_circle.appendChild(op6);
     }
-    window.scrollTo(0, document.getElementById('section-2').offsetTop);
+    var section4 = document.getElementById("section-4");
+    section4.scrollIntoView({ behavior: 'smooth' });
 });
 
 const falsei = document.createElement('img');
@@ -366,8 +390,35 @@ falsei.addEventListener('click', () => {
     img1.style.opacity = 1;
     mi_circle.appendChild(op2);
   }
-  window.scrollTo(0, document.getElementById('section-2').offsetTop);
+  var section4 = document.getElementById("section-4");
+  section4.scrollIntoView({ behavior: 'smooth' });
 });
 
 
+/////////vecindario de canciones
 
+
+d3.dsv(',', 'vizdatabase.csv', d3.autoType).then(data => {
+
+  let chart = Plot.plot({
+    width:800,
+    height:400,
+
+    marks: [
+      Plot.dot(data,{
+        x: "popularity",
+        y: "acousticness",
+        fill: "miembro",
+        r:4,
+      }),
+
+      Plot.dot(data,{
+        x:pop,
+        y:acoust,
+        fill: "#000000",
+        r: 4,
+      }),
+    ],    
+  })
+  d3.select('#grafico').append(() => chart)
+})

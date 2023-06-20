@@ -5,8 +5,8 @@
   <script src="https://unpkg.com/scrollama@2.2.0/build/scrollama.min.js"></script>
   <!DOCTYPE html>
   <html>
-  <head>
     <link rel="stylesheet" href="prueba.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://unpkg.com/scrollama@2.2.0/build/scrollama.min.js"></script>
     <link rel="stylesheet" href="prueba.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,50 +14,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>Circle Hover Effect</title>
-    <style>
-      
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: ,sans-serif;
-      }
-  
-      header {
-        background-color: #000000;
-        
-        padding: 20px;
-        text-align: center;
-        color: #fff;
-      }
-  
-      h1 {
-        font-family: 'Chicle', cursive;
-        margin: 0;
-        font-size: 36px;
-      }
-  
-      p {
-        margin: 10px 0;
-        font-size: 18px;
-        color: #fff;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-    
-     
-      <h1>Find your perfect song</h1>
-      <p>Descubrí la cancion que conecta con tu humor</p>
-    </header>
-    
+</head>
+    <body>
+<section>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
 
   <h2>Elige el género de tu canción</h2>
   <div id="container"></div>
-  <p style="margin-bottom: 200px;"></p>
-
   <section id="section-1" class="step"></section>
-  <h2>Elige danzabilidad</h2>
+  <p style="margin-bottom: 150px;"></p>
+
+  <h2 style="margin-bottom: 50px">Elige danzabilidad</h2>
   <div id="imageContainer"></div>
   <ul style="margin-left: -40px">
     <li style="margin-left: -39.6666px;">0 - 0.25</li>
@@ -66,21 +34,28 @@
     <li>0.75 - 1</li>
   </ul>
   <p style="margin-bottom: 200px;"></p>
-
-
-  <h2>Elige la popularidad y la acústica</h2>
   <section id="section-2" class="step"></section>
+
+  <h2 style="margin-bottom: -10px;">Elige la popularidad y la acústica</h2>
   <div id="container3"></div>
   <p style="margin-bottom: 200px;"></p>
 
+  <section id="section-3" class="step"></section>
   <h2>Elige si es explícito o no</h2>
   <div id="container5"></div>
   <ul style="margin-left: -20px">
     <li style="margin-right: 10px;">Explícito</li>
     <li>No explícito</li>
   </ul>
+  <p style="margin-bottom: 200px;"></p>
 
+  <h2 style="margin-bottom: 50px;">Tu canción está lista!</h2>
   <div id="container4"></div>
+  <section id="section-4" class="step"></section>
+  <p style="margin-bottom: 200px;"></p>
+
+  <h2>Vecindario de canciones</h2>
+  <div id="grafico"></div>
 
 
   <script src="prueba.js"></script>
