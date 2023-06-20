@@ -394,10 +394,10 @@ falsei.addEventListener('click', () => {
   section4.scrollIntoView({ behavior: 'smooth' });
 });
 
+///////////////your song
+
 
 /////////vecindario de canciones
-
-
 d3.dsv(',', 'vizdatabase.csv', d3.autoType).then(data => {
 
   let chart = Plot.plot({
@@ -421,4 +421,76 @@ d3.dsv(',', 'vizdatabase.csv', d3.autoType).then(data => {
     ],    
   })
   d3.select('#grafico').append(() => chart)
+
+  d3.selectAll('circle')
+  .on('mouseover', handleMouseOver)
+  .on('mouseout', handleMouseOut);
+})
+
+function handleMouseOver(d, i) {
+  // Change the fill color of the dot on mouseover
+  d3.select(this).style('opacity', 0.7);
+  const dotX = d.x;
+  const dotY = d.y;
+
+  const matchingElement = d3.select('#chart_container')
+    .selectAll('.jugador_bio')
+    .filter(item => item.popularity === dotX && item.acousticness === dotY);
+
+  // Display the matching element
+  matchingElement.style('display', 'block');
+}
+
+function handleMouseOut(d, i) {
+  // Change the fill color of the dot back to its original value on mouseout
+  d3.select(this).style('opacity', 1);
+
+  d3.selectAll('.jugador_bio')
+  .style('display', 'none');
+}
+
+//////////// canciones
+d3.csv('vizdatabase.csv', d3.autoType).then(data => {
+
+  const canciones = d3.select('#chart_container')
+  const jugadores = canciones.selectAll('div')
+    .data(data)
+    .join('div')
+    
+    const bio = jugadores.append('div')
+    .attr('class', 'jugador_bio')
+    
+    bio.append('h3')
+      .attr('class', 'cancion')
+      .text(d => d.cancion)
+
+    bio.append('p')
+    .attr('class', 'jugador_edad')
+    .text(d => d.genero)
+    
+    bio.append('p')
+      .attr('class', 'jugador_nac')
+      .text(d => d.acousticness)
+      .append('span')
+      .text('% acústica')
+
+    bio.append('p')
+      .attr('class', 'jugador_nac')
+      .text(d => d.danceability)
+      .append('span')
+      .text('% danzabilidad')
+
+    bio.append('p')
+      .attr('class', 'jugador_nac')
+      .text('Explícito: ')
+      .append('span')
+      .text(d => d.explicit)
+
+    bio.append('p')
+      .attr('class', 'jugador_nac')
+      .text(d => d.popularity)
+      .append('span')
+      .text('% popularidad')
+
+  console.log((canciones))
 })
