@@ -10,43 +10,44 @@ mi_circle.style.backgroundColor = "white";
 container4.appendChild(mi_circle)
 
 const op1 = document.createElement('img');
-op1.src = './imagenes/estrella4.png';
-op1.alt = './imagenes/estrella4.png';
+op1.src = './imagenes/estrellasexplicit/4.false.svg';
+op1.alt = './imagenes/estrellasexplicit/4.false.svg';
 op1.classList.add('op1');
 
 const op2 = document.createElement('img');
-op2.src = './imagenes/estrella6.png';
-op2.alt = './imagenes/estrella6.png';
+op2.src = './imagenes/estrellasexplicit/6.false.svg';
+op2.alt = './imagenes/estrellasexplicit/6.false.svg';
 op2.classList.add('op1');
 
 const op3 = document.createElement('img');
-op3.src = './imagenes/estrella8.png';
-op3.alt = './imagenes/estrella8.png';
+op3.src = './imagenes/estrellasexplicit/8.false.svg';
+op3.alt = './imagenes/estrellasexplicit/8.false.svg';
 op3.classList.add('op1');
 
 const op4 = document.createElement('img');
-op4.src = './imagenes/estrella10.png';
-op4.alt = './imagenes/estrella10.png';
+op4.src = './imagenes/estrellasexplicit/10.false.svg';
+op4.alt = './imagenes/estrellasexplicit/10.false.svg';
+op4.style.marginTop = '10px';
 op4.classList.add('op1');
 
 const op5 = document.createElement('img');
-op5.src = './imagenes/estrella4b.png';
-op5.alt = './imagenes/estrella4b.png';
+op5.src = './imagenes/estrellasexplicit/4.true.svg';
+op5.alt = './imagenes/estrellasexplicit/4.true.svg';
 op5.classList.add('op1');
 
 const op6 = document.createElement('img');
-op6.src = './imagenes/estrella6b.png';
-op6.alt = './imagenes/estrella6b.png';
+op6.src = './imagenes/estrellasexplicit/6.true.svg';
+op6.alt = './imagenes/estrellasexplicit/6.true.svg';
 op6.classList.add('op1');
 
 const op7 = document.createElement('img');
-op7.src = './imagenes/estrella8b.png';
-op7.alt = './imagenes/estrella8b.png';
+op7.src = './imagenes/estrellasexplicit/8.true.svg';
+op7.alt = './imagenes/estrellasexplicit/8.true.svg';
 op7.classList.add('op1');
 
 const op8 = document.createElement('img');
-op8.src = './imagenes/estrella10b.png';
-op8.alt = './imagenes/estrella10b.png';
+op8.src = './imagenes/estrellasexplicit/10.true.svg';
+op8.alt = './imagenes/estrellasexplicit/10.true.svg';
 op8.classList.add('op1');
 
 
