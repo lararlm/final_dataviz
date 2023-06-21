@@ -165,75 +165,17 @@ const container3 = document.getElementById('container3');
 // Bar Graph 1
 const canvas1 = document.createElement('canvas');
 canvas1.width = 500;
-canvas1.height = 200;
+canvas1.height = 100;
 canvas1.classList.add('canvas1')
 container3.appendChild(canvas1);
 
-const ctx1 = canvas1.getContext('2d');
-const maxBarWidth1 = canvas1.width - 40; // Adjust the value to control the maximum width of the bars
-const xTicks1 = ['0%', '50%', '100%'];
-const tickSpacing1 = maxBarWidth1 / (xTicks1.length - 1);
 let sliderValue1 = 0;
-
-function drawBarGraph1() {
-  ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
-  const barHeight = 60;
-  const barWidth = sliderValue1 * maxBarWidth1 / 100;
-  const barX = 20;
-  const barY = (canvas1.height - barHeight) / 2;
-  const cornerRadius = 10; // Adjust the value to control the roundness of the corners
-
-  ctx1.fillStyle = '#EDAE29';
-
-  if (sliderValue1 === 0) {
-    // Handle special case when bar is at 0%
-    ctx1.fillRect(barX, barY, 0, barHeight);
-  } 
-  else {
-    // Draw rounded rectangle
-    ctx1.beginPath();
-    ctx1.moveTo(barX + cornerRadius, barY);
-    ctx1.lineTo(barX + barWidth - cornerRadius, barY);
-    ctx1.quadraticCurveTo(barX + barWidth, barY, barX + barWidth, barY + cornerRadius);
-    ctx1.lineTo(barX + barWidth, barY + barHeight - cornerRadius);
-    ctx1.quadraticCurveTo(barX + barWidth, barY + barHeight, barX + barWidth - cornerRadius, barY + barHeight);
-    ctx1.lineTo(barX + cornerRadius, barY + barHeight);
-    ctx1.quadraticCurveTo(barX, barY + barHeight, barX, barY + barHeight - cornerRadius);
-    ctx1.lineTo(barX, barY + cornerRadius);
-    ctx1.quadraticCurveTo(barX, barY, barX + cornerRadius, barY);
-    ctx1.closePath();
-    ctx1.fill();
-  }
-  // Draw x-axis ticks and labels
-  ctx1.strokeStyle = 'black';
-  ctx1.lineWidth = 1;
-  ctx1.font = '13px Trebuchet MS';
-  ctx1.textAlign = 'center';
-  ctx1.textBaseline = 'top';
-  ctx1.fillStyle = 'black';
-
-  for (let i = 0; i < xTicks1.length; i++) {
-    const tickValue = xTicks1[i];
-    const tickX = barX + (i * tickSpacing1);
-    const tickY = barY + barHeight + 10;
-
-    ctx1.beginPath();
-    ctx1.moveTo(tickX, tickY - 5);
-    ctx1.lineTo(tickX, tickY);
-    ctx1.stroke();
-
-    ctx1.fillText(tickValue, tickX, tickY + 10);
-  }
-}
 
 function handleSliderChange1(event) {
   sliderValue1 = event.target.value;
   pop = event.target.value;
   console.log(pop)
-  drawBarGraph1();
 }
-
-drawBarGraph1();
 
 const slider1 = document.createElement('input');
 let pop = 0;
@@ -248,75 +190,18 @@ container3.appendChild(slider1);
 // Bar Graph 2
 const canvas2 = document.createElement('canvas');
 canvas2.width = 500;
-canvas2.height = 200;
+canvas2.height = 100;
 container3.appendChild(canvas2);
 
-const ctx2 = canvas2.getContext('2d');
-const maxBarWidth2 = canvas2.width - 40; // Adjust the value to control the maximum width of the bars
-const xTicks2 = ['0%', '50%', '100%'];
-const tickSpacing2 = maxBarWidth2 / (xTicks2.length - 1);
+
 let sliderValue2 = 0;
-
-function drawBarGraph2() {
-  ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
-
-  const barHeight = 60;
-  const barWidth = sliderValue2 * maxBarWidth2 / 100;
-  const barX = 20;
-  const barY = (canvas2.height - barHeight) / 2;
-  const cornerRadius = 10;
-
-  ctx2.fillStyle = '#10A7A0';
-
-  if (sliderValue2 === 0) {
-    // Handle special case when bar is at 0%
-    ctx2.fillRect(barX, barY, 0, barHeight);
-  } else {
-    // Draw rounded rectangle
-    ctx2.beginPath();
-    ctx2.moveTo(barX + cornerRadius, barY);
-    ctx2.lineTo(barX + barWidth - cornerRadius, barY);
-    ctx2.quadraticCurveTo(barX + barWidth, barY, barX + barWidth, barY + cornerRadius);
-    ctx2.lineTo(barX + barWidth, barY + barHeight - cornerRadius);
-    ctx2.quadraticCurveTo(barX + barWidth, barY + barHeight, barX + barWidth - cornerRadius, barY + barHeight);
-    ctx2.lineTo(barX + cornerRadius, barY + barHeight);
-    ctx2.quadraticCurveTo(barX, barY + barHeight, barX, barY + barHeight - cornerRadius);
-    ctx2.lineTo(barX, barY + cornerRadius);
-    ctx2.quadraticCurveTo(barX, barY, barX + cornerRadius, barY);
-    ctx2.closePath();
-    ctx2.fill();
-  }
-
-  // Draw x-axis ticks and labels
-  ctx2.strokeStyle = 'black';
-  ctx2.lineWidth = 1;
-  ctx2.font = '13px Trebuchet MS';
-  ctx2.textAlign = 'center';
-  ctx2.textBaseline = 'top';
-  ctx2.fillStyle = 'black';
-
-  for (let i = 0; i < xTicks2.length; i++) {
-    const tickValue = xTicks2[i];
-    const tickX = barX + (i * tickSpacing2);
-    const tickY = barY + barHeight + 10;
-
-    ctx2.beginPath();
-    ctx2.moveTo(tickX, tickY - 5);
-    ctx2.lineTo(tickX, tickY);
-    ctx2.stroke();
-
-    ctx2.fillText(tickValue, tickX, tickY + 10);
-  }
-}
 
 
 function handleSliderChange2(event) {
   sliderValue2 = event.target.value;
   acoust = event.target.value;
-  drawBarGraph2();
 }
 
-drawBarGraph2();
 
 const slider2 = document.createElement('input');
 let acoust = 0;
@@ -395,37 +280,92 @@ falsei.addEventListener('click', () => {
 });
 
 ///////////////your song
+/*
+d3.csv('vizdatabase.csv', d3.autoType).then(data => {
+    
+  const bio = d3.select('#chart_container')
+    .data(data)
+    .join('div')
+  
+  bio.append('h3')
+    .attr('class', 'cancion')
+    .text(d => d.cancion)
 
+  bio.append('p')
+  .attr('class', 'jugador_edad')
+  .text(d => d.genero)
+  
+  bio.append('p')
+    .attr('class', 'jugador_nac')
+    .text(d => d.acousticness)
+    .append('span')
+    .text('% acústica')
+
+  bio.append('p')
+    .attr('class', 'jugador_nac')
+    .text(d => d.danceability)
+    .append('span')
+    .text('% danzabilidad')
+
+  bio.append('p')
+    .attr('class', 'jugador_nac')
+    .text('Explícito: ')
+    .append('span')
+    .text(d => d.explicit)
+
+  bio.append('p')
+    .attr('class', 'jugador_nac')
+    .text(d => d.popularity)
+    .append('span')
+    .text('% popularidad')
+})*/
 
 /////////vecindario de canciones
-d3.dsv(',', 'vizdatabase.csv', d3.autoType).then(data => {
+function updatePlot() {
+  d3.dsv(',', 'vizdatabase.csv', d3.autoType).then(data => {
+    let chart = Plot.plot({
+      width: 800,
+      height: 400,
+      marks: [
+        Plot.dot(data, {
+          x: "popularity",
+          y: "acousticness",
+          fill: "miembro",
+          r: 4,
+        }),
+        Plot.dot(data, {
+          x: () => pop,
+          y: () => acoust,
+          fill: "#000000",
+          r: 4,
+        }),
+      ],
+      y:{
+        domain: [0,100]
+      },
+      x:{
+        domain: [0,100]
+      },
+      color:{
+        range: ['#EDAE29', '#861275', '#10A7A0']
+      }
+    });
 
-  let chart = Plot.plot({
-    width:800,
-    height:400,
+    d3.select('#grafico').html(''); // Clear the previous chart
+    d3.select('#grafico').append(() => chart);
 
-    marks: [
-      Plot.dot(data,{
-        x: "popularity",
-        y: "acousticness",
-        fill: "miembro",
-        r:4,
-      }),
+    d3.selectAll('circle')
+      .on('mouseover', handleMouseOver)
+      .on('mouseout', handleMouseOut);
+  });
+}
 
-      Plot.dot(data,{
-        x:pop,
-        y:acoust,
-        fill: "#000000",
-        r: 4,
-      }),
-    ],    
-  })
-  d3.select('#grafico').append(() => chart)
+// Call updatePlot initially
+updatePlot();
 
-  d3.selectAll('circle')
-  .on('mouseover', handleMouseOver)
-  .on('mouseout', handleMouseOut);
-})
+// Call updatePlot every 5 seconds (adjust the interval as needed)
+setInterval(updatePlot, 5000);
+
 
 function handleMouseOver(d, i) {
   // Change the fill color of the dot on mouseover
@@ -434,7 +374,7 @@ function handleMouseOver(d, i) {
   const dotY = d.y;
 
   const matchingElement = d3.select('#chart_container')
-    .selectAll('.jugador_bio')
+    .selectAll('.bio')
     .filter(item => item.popularity === dotX && item.acousticness === dotY);
 
   // Display the matching element
@@ -445,52 +385,8 @@ function handleMouseOut(d, i) {
   // Change the fill color of the dot back to its original value on mouseout
   d3.select(this).style('opacity', 1);
 
-  d3.selectAll('.jugador_bio')
+  d3.selectAll('.bio')
   .style('display', 'none');
 }
 
-//////////// canciones
-d3.csv('vizdatabase.csv', d3.autoType).then(data => {
-
-  const canciones = d3.select('#chart_container')
-  const jugadores = canciones.selectAll('div')
-    .data(data)
-    .join('div')
-    
-    const bio = jugadores.append('div')
-    .attr('class', 'jugador_bio')
-    
-    bio.append('h3')
-      .attr('class', 'cancion')
-      .text(d => d.cancion)
-
-    bio.append('p')
-    .attr('class', 'jugador_edad')
-    .text(d => d.genero)
-    
-    bio.append('p')
-      .attr('class', 'jugador_nac')
-      .text(d => d.acousticness)
-      .append('span')
-      .text('% acústica')
-
-    bio.append('p')
-      .attr('class', 'jugador_nac')
-      .text(d => d.danceability)
-      .append('span')
-      .text('% danzabilidad')
-
-    bio.append('p')
-      .attr('class', 'jugador_nac')
-      .text('Explícito: ')
-      .append('span')
-      .text(d => d.explicit)
-
-    bio.append('p')
-      .attr('class', 'jugador_nac')
-      .text(d => d.popularity)
-      .append('span')
-      .text('% popularidad')
-
-  console.log((canciones))
-})
+//////////// cancion

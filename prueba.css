@@ -164,13 +164,13 @@ section{
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
-    width: 38%;
+    width: 60%;
     cursor: pointer;
     outline: none;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-    height: 10px;
+    height: 60px;
     background: #ccc;
     border-radius: 16px;
     overflow: hidden;
@@ -184,11 +184,10 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    height: 10px;
+    height: 60px;
     width: 10px;
     background-color: #861275;
-    border-radius: 50%;
-    border: 2px solid rgb(126, 14, 119);
+    border-radius: 0%;
     box-shadow: -407px 0 0 400px rgb(178, 72, 148);
 
   }
