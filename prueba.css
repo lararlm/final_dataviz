@@ -50,6 +50,29 @@ section{
     transform: scale(1.2) rotate(180deg);
 }
 
+.tu_song{
+    width: 300px;
+    margin-left: 0px;
+    display: inline-block;
+    position: absolute;
+}
+
+.songtitle{
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.artist{
+    font-size: 16px;
+    font-style: italic;
+}
+
+.codigo{
+    width: 150px;
+
+}
+
 .truei{
     width: 180px;
     height: 180px;

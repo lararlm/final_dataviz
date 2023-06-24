@@ -9,6 +9,33 @@ mi_circle.style.backgroundColor = "white";
 
 container4.appendChild(mi_circle)
 
+//////////// cancion
+
+const tu_song = document.createElement('div');
+tu_song.classList.add('tu_song');
+tu_song.style.opacity = 0;
+
+
+const songTitle1 = document.createElement('p');
+songTitle1.className = 'songtitle';
+songTitle1.textContent = 'How Soon Is Now?';
+tu_song.appendChild(songTitle1);
+
+const artist = document.createElement('p');
+artist.className = 'artist';
+artist.textContent = 'The Smiths';
+tu_song.appendChild(artist);
+
+const escan = document.createElement('img');
+escan.src = './imagenes/codigo.svg';
+escan.alt = './imagenes/codigo.svg';
+escan.classList.add('codigo');
+tu_song.appendChild(escan);
+
+container4.appendChild(tu_song);
+//////////////////////////
+
+
 const op1 = document.createElement('img');
 op1.src = './imagenes/estrellasexplicit/4.false.svg';
 op1.alt = './imagenes/estrellasexplicit/4.false.svg';
@@ -78,7 +105,6 @@ for (let i = 0; i < circleTexts.length; i++) {
   // Add click event listener to circles
   circle.addEventListener('click', () => {
     clickedElement = circleColors[i % circleColors.length];
-    mi_circle.style.backgroundColor = clickedElement;
     var section1 = document.getElementById("section-1");
     section1.scrollIntoView({ behavior: 'smooth' });
 });
@@ -250,6 +276,8 @@ truei.addEventListener('click', () => {
     if(danza ==2){
       mi_circle.appendChild(op6);
     }
+    mi_circle.style.backgroundColor = clickedElement;
+    tu_song.style.opacity = 1;
     var section4 = document.getElementById("section-4");
     section4.scrollIntoView({ behavior: 'smooth' });
 });
@@ -276,6 +304,8 @@ falsei.addEventListener('click', () => {
     img1.style.opacity = 1;
     mi_circle.appendChild(op2);
   }
+  mi_circle.style.backgroundColor = clickedElement;
+  tu_song.style.opacity = 1;
   var section4 = document.getElementById("section-4");
   section4.scrollIntoView({ behavior: 'smooth' });
 });
@@ -320,13 +350,57 @@ d3.csv('vizdatabase.csv', d3.autoType).then(data => {
     .append('span')
     .text('% popularidad')
 })*/
+///////////////hover
+const mi_song = document.createElement('div');
+mi_song.classList.add('tu_song');
+mi_song.style.display = 'none';
 
+const tit = document.createElement('p');
+tit.className = 'songtitle';
+tit.textContent = 'Lovesong';
+mi_song.appendChild(tit);
+
+const art = document.createElement('p');
+art.className = 'artist';
+art.textContent = 'Lana del Rey';
+mi_song.appendChild(art);
+
+const mi_song2 = document.createElement('div');
+mi_song2.classList.add('tu_song');
+mi_song2.style.display = 'none';
+
+const tit2 = document.createElement('p');
+tit2.className = 'songtitle';
+tit2.textContent = 'Enchanted';
+mi_song2.appendChild(tit2);
+
+const art2 = document.createElement('p');
+art2.className = 'artist';
+art2.textContent = 'Taylor Swift';
+mi_song2.appendChild(art2);
+
+const mi_song3 = document.createElement('div');
+mi_song3.classList.add('tu_song');
+mi_song3.style.display = 'none';
+
+const tit3 = document.createElement('p');
+tit3.className = 'songtitle';
+tit3.textContent = 'Little by Little';
+mi_song3.appendChild(tit3);
+
+const art3 = document.createElement('p');
+art3.className = 'artist';
+art3.textContent = 'Oasis';
+mi_song3.appendChild(art3);
+
+const repo = [mi_song, mi_song2, mi_song3];
 /////////vecindario de canciones
 function updatePlot() {
   d3.dsv(',', 'vizdatabase.csv', d3.autoType).then(data => {
     let chart = Plot.plot({
       width: 800,
       height: 400,
+      inset : 20,
       marks: [
         Plot.dot(data, {
           x: "popularity",
@@ -354,6 +428,11 @@ function updatePlot() {
 
     d3.select('#grafico').html(''); // Clear the previous chart
     d3.select('#grafico').append(() => chart);
+    const chartContainer = d3.select('#grafico').node();
+    chartContainer.appendChild(mi_song);
+    chartContainer.appendChild(mi_song2);
+    chartContainer.appendChild(mi_song3);
+
 
     d3.selectAll('circle')
       .on('mouseover', handleMouseOver)
@@ -367,27 +446,18 @@ updatePlot();
 // Call updatePlot every 5 seconds (adjust the interval as needed)
 setInterval(updatePlot, 5000);
 
-
+let index = 0;
 function handleMouseOver(d, i) {
-  // Change the fill color of the dot on mouseover
   d3.select(this).style('opacity', 0.7);
-  const dotX = d.x;
-  const dotY = d.y;
+  let j = Math.floor(Math.random() * 3);
+  repo[j].style.display = 'block';
+  index = j;
 
-  const matchingElement = d3.select('#chart_container')
-    .selectAll('.bio')
-    .filter(item => item.popularity === dotX && item.acousticness === dotY);
-
-  // Display the matching element
-  matchingElement.style('display', 'block');
 }
 
 function handleMouseOut(d, i) {
-  // Change the fill color of the dot back to its original value on mouseout
+  repo[index].style.display = 'none';
   d3.select(this).style('opacity', 1);
-
-  d3.selectAll('.bio')
-  .style('display', 'none');
 }
 
-//////////// cancion
+
