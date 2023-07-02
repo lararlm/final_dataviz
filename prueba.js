@@ -392,8 +392,176 @@ const art3 = document.createElement('p');
 art3.className = 'artist';
 art3.textContent = 'Oasis';
 mi_song3.appendChild(art3);
+///////
+const mi_song4 = document.createElement('div');
+mi_song4.classList.add('tu_song');
+mi_song4.style.display = 'none';
 
-const repo = [mi_song, mi_song2, mi_song3];
+const tit4 = document.createElement('p');
+tit4.className = 'songtitle';
+tit4.textContent = 'Bags';
+mi_song4.appendChild(tit4);
+
+const art4 = document.createElement('p');
+art4.className = 'artist';
+art4.textContent = 'Clairo';
+mi_song4.appendChild(art4);
+///////////////////
+const mi_song5 = document.createElement('div');
+mi_song5.classList.add('tu_song');
+mi_song5.style.display = 'none';
+
+const tit5 = document.createElement('p');
+tit5.className = 'songtitle';
+tit5.textContent = 'I Bet on Losing Dogs';
+mi_song5.appendChild(tit5);
+
+const art5 = document.createElement('p');
+art5.className = 'artist';
+art5.textContent = 'Mitski';
+mi_song5.appendChild(art5);
+/////////////////////
+const mi_song6 = document.createElement('div');
+mi_song6.classList.add('tu_song');
+mi_song6.style.display = 'none';
+
+const tit6 = document.createElement('p');
+tit6.className = 'songtitle';
+tit6.textContent = 'Green Lights';
+mi_song6.appendChild(tit6);
+
+const art6 = document.createElement('p');
+art6.className = 'artist';
+art6.textContent = 'Lorde';
+mi_song6.appendChild(art6);
+///////////////
+const mi_song7 = document.createElement('div');
+mi_song7.classList.add('tu_song');
+mi_song7.style.display = 'none';
+
+const tit7 = document.createElement('p');
+tit7.className = 'songtitle';
+tit7.textContent = 'bad guy';
+mi_song7.appendChild(tit7);
+
+const art7 = document.createElement('p');
+art7.className = 'artist';
+art7.textContent = 'Billie Eilish';
+mi_song7.appendChild(art7);
+///////////////
+const mi_song8 = document.createElement('div');
+mi_song8.classList.add('tu_song');
+mi_song8.style.display = 'none';
+
+const tit8 = document.createElement('p');
+tit8.className = 'songtitle';
+tit8.textContent = 'Electric Feel';
+mi_song8.appendChild(tit8);
+
+const art8 = document.createElement('p');
+art8.className = 'artist';
+art8.textContent = 'MGMT';
+mi_song8.appendChild(art8);
+//////////////////
+const mi_song9 = document.createElement('div');
+mi_song9.classList.add('tu_song');
+mi_song9.style.display = 'none';
+
+const tit9 = document.createElement('p');
+tit9.className = 'songtitle';
+tit9.textContent = 'Hung Up';
+mi_song9.appendChild(tit9);
+
+const art9 = document.createElement('p');
+art9.className = 'artist';
+art9.textContent = 'Madonna';
+mi_song9.appendChild(art9);
+/////////////////77
+const mi_song10 = document.createElement('div');
+mi_song10.classList.add('tu_song');
+mi_song10.style.display = 'none';
+
+const tit10 = document.createElement('p');
+tit10.className = 'songtitle';
+tit10.textContent = 'Is It True';
+mi_song10.appendChild(tit10);
+
+const art10 = document.createElement('p');
+art10.className = 'artist';
+art10.textContent = 'Tame Impala';
+mi_song10.appendChild(art10);
+///////////////7
+const mi_song11 = document.createElement('div');
+mi_song11.classList.add('tu_song');
+mi_song11.style.display = 'none';
+
+const tit11 = document.createElement('p');
+tit11.className = 'songtitle';
+tit11.textContent = 'Flowers';
+mi_song11.appendChild(tit11);
+
+const art11 = document.createElement('p');
+art11.className = 'artist';
+art11.textContent = 'Miley Cyrus';
+mi_song11.appendChild(art11);
+/////////////////
+const mi_song12 = document.createElement('div');
+mi_song12.classList.add('tu_song');
+mi_song12.style.display = 'none';
+
+const tit12 = document.createElement('p');
+tit12.className = 'songtitle';
+tit12.textContent = 'Oblivion';
+mi_song12.appendChild(tit12);
+
+const art12 = document.createElement('p');
+art12.className = 'artist';
+art12.textContent = 'Grimes';
+mi_song12.appendChild(art12);
+/////////////////////////
+const mi_song13 = document.createElement('div');
+mi_song13.classList.add('tu_song');
+mi_song13.style.display = 'none';
+
+const tit13 = document.createElement('p');
+tit13.className = 'songtitle';
+tit13.textContent = 'On My Mind';
+mi_song13.appendChild(tit13);
+
+const art13 = document.createElement('p');
+art13.className = 'artist';
+art13.textContent = 'Diplo';
+mi_song13.appendChild(art13);
+///////////////////////
+const mi_song14 = document.createElement('div');
+mi_song14.classList.add('tu_song');
+mi_song14.style.display = 'none';
+
+const tit14 = document.createElement('p');
+tit14.className = 'songtitle';
+tit14.textContent = 'Roses';
+mi_song14.appendChild(tit14);
+
+const art14 = document.createElement('p');
+art14.className = 'artist';
+art14.textContent = 'Outkast';
+mi_song14.appendChild(art14);
+////////////////
+const mi_song15 = document.createElement('div');
+mi_song15.classList.add('tu_song');
+mi_song15.style.display = 'none';
+
+const tit15 = document.createElement('p');
+tit15.className = 'songtitle';
+tit15.textContent = 'Wannabe';
+mi_song15.appendChild(tit15);
+
+const art15 = document.createElement('p');
+art15.className = 'artist';
+art15.textContent = 'Spice Girls';
+mi_song15.appendChild(art15);
+
+const repo = [mi_song, mi_song2, mi_song3, mi_song4, mi_song5,mi_song6,mi_song7,mi_song8,mi_song9,mi_song10,mi_song11,mi_song12,mi_song13,mi_song14,mi_song15];
 /////////vecindario de canciones
 function updatePlot() {
   d3.dsv(',', 'vizdatabase.csv', d3.autoType).then(data => {
@@ -416,13 +584,16 @@ function updatePlot() {
         }),
       ],
       y:{
-        domain: [0,100]
+        domain: [0,100],
+        label: "Acústica",
       },
       x:{
-        domain: [0,100]
+        domain: [0,100],
+        label: "Popularidad",
       },
       color:{
-        range: ['#EDAE29', '#861275', '#10A7A0']
+        range: ['#EDAE29', '#861275', '#10A7A0'],
+        legend: true,
       }
     });
 
@@ -432,6 +603,18 @@ function updatePlot() {
     chartContainer.appendChild(mi_song);
     chartContainer.appendChild(mi_song2);
     chartContainer.appendChild(mi_song3);
+    chartContainer.appendChild(mi_song4);
+    chartContainer.appendChild(mi_song5);
+    chartContainer.appendChild(mi_song6);
+    chartContainer.appendChild(mi_song7);
+    chartContainer.appendChild(mi_song8);
+    chartContainer.appendChild(mi_song9);
+    chartContainer.appendChild(mi_song10);
+    chartContainer.appendChild(mi_song11);
+    chartContainer.appendChild(mi_song12);
+    chartContainer.appendChild(mi_song13);
+    chartContainer.appendChild(mi_song14);
+    chartContainer.appendChild(mi_song15);
 
 
     d3.selectAll('circle')
@@ -449,7 +632,7 @@ setInterval(updatePlot, 5000);
 let index = 0;
 function handleMouseOver(d, i) {
   d3.select(this).style('opacity', 0.7);
-  let j = Math.floor(Math.random() * 3);
+  let j = Math.floor(Math.random() * 15);
   repo[j].style.display = 'block';
   index = j;
 
