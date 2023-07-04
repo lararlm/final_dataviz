@@ -2,13 +2,35 @@ body {
     display:grid;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
     margin-left: 100px;
     margin-right: 100px;
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Helvetica, sans-serif;
-  }
+    font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: #fff;
+    height: 200vh;
+    position: relative;   
+/*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Helvetica, sans-serif; */
+}
+
+  p {
+    color: #4f4d4d;
+    font-weight: 00; }
+  .site-navbar {
+    margin-bottom: 0px;
+    z-index: 1999;
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 1rem; }
+    .site-navbar .site-logo {
+      margin: 0;
+      padding: 0;
+      font-weight: 600;
+      font-size: 1.7rem; }
+      .site-navbar .site-logo a {
+        color: #b459e9; }
+  
 
 .container{
     text-align: center;
