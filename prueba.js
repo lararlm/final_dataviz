@@ -80,6 +80,31 @@ op8.classList.add('op1');
 
 ///////////////////
 
+// Get the intro container
+const introContainer = document.getElementById('intro');
+
+// Create the button
+var readyButton = document.createElement("button");
+readyButton.textContent = "Empezar!";
+readyButton.classList.add('readyButton');
+readyButton.id = "readyButton"; // Add an id to your button
+
+// Add the style changes
+readyButton.style.display = "block";
+readyButton.style.margin = "0 auto";
+
+// Add click event listener to scroll to the genre choosing section
+readyButton.addEventListener("click", function() {
+  var genreSection = document.getElementById("container"); // Replace "genre-section" with the id of your genre choosing section
+  genreSection.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Append the button to the intro container
+introContainer.appendChild(readyButton);
+
+
+////////////////////////
+
 const container = document.getElementById('container');
 
 // Array of circle texts
@@ -198,11 +223,10 @@ container3.appendChild(canvas1);
 
 let sliderValue1 = 0;
 
-function handleSliderChange1(event) {
-  sliderValue1 = event.target.value;
-  pop = event.target.value;
-  console.log(pop)
-}
+// Create a span to hold the percentage value for slider1
+const percentage1 = document.createElement('span');
+percentage1.classList.add('percentage'); // Add class
+container3.appendChild(percentage1);
 
 const slider1 = document.createElement('input');
 let pop = 0;
@@ -223,12 +247,10 @@ container3.appendChild(canvas2);
 
 let sliderValue2 = 0;
 
-
-function handleSliderChange2(event) {
-  sliderValue2 = event.target.value;
-  acoust = event.target.value;
-}
-
+// Create a span to hold the percentage value for slider2
+const percentage2 = document.createElement('span');
+percentage2.classList.add('percentage'); // Add class
+container3.appendChild(percentage2);
 
 const slider2 = document.createElement('input');
 let acoust = 0;
@@ -240,10 +262,51 @@ slider2.addEventListener('input', handleSliderChange2);
 slider2.classList.add('slider-celeste');
 container3.appendChild(slider2);
 
+let slider1Clicked = false;
+let slider2Clicked = false;
+
+function handleSliderChange1(event) {
+  sliderValue1 = event.target.value;
+  pop = event.target.value;
+  console.log(pop);
+  // Update the percentage value
+  percentage1.textContent = `${sliderValue1}%`;
+  slider1Clicked = true;
+  checkSliders();
+}
+
+function handleSliderChange2(event) {
+  sliderValue2 = event.target.value;
+  acoust = event.target.value;
+  // Update the percentage value
+  percentage2.textContent = `${sliderValue2}%`;
+  slider2Clicked = true;
+  checkSliders();
+}
+
+
+function checkSliders() {
+  if (slider1Clicked && slider2Clicked) {
+    var section3 = document.getElementById("section-3");
+    section3.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+/*
+// Create a new div for the button
+var buttonContainer = document.createElement("div");
+buttonContainer.style.display = "flex";
+buttonContainer.style.justifyContent = "center";
+buttonContainer.style.width = "100%"; // This will make sure the button is centered relative to the entire width of the container
+
 
 var button = document.createElement("button");
 button.textContent = "Next";
 button.classList.add('boton')
+button.id = "nextButton"; // Add an id to your button
+
+button.style.display = "block";
+button.style.margin = "0 auto";
 
 // Add click event listener to scroll to section2
 button.addEventListener("click", function() {
@@ -253,6 +316,7 @@ button.addEventListener("click", function() {
 
 // Append the button to the body
 container3.appendChild(button);
+*/
 
 //////////explicit
 
@@ -350,7 +414,9 @@ d3.csv('vizdatabase.csv', d3.autoType).then(data => {
     .append('span')
     .text('% popularidad')
 })*/
+
 ///////////////hover
+/*
 const mi_song = document.createElement('div');
 mi_song.classList.add('tu_song');
 mi_song.style.display = 'none';
@@ -562,9 +628,39 @@ art15.textContent = 'Spice Girls';
 mi_song15.appendChild(art15);
 
 const repo = [mi_song, mi_song2, mi_song3, mi_song4, mi_song5,mi_song6,mi_song7,mi_song8,mi_song9,mi_song10,mi_song11,mi_song12,mi_song13,mi_song14,mi_song15];
+
+*/
 /////////vecindario de canciones
+
+// Create a tooltip div
+const tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+
 function updatePlot() {
   d3.dsv(',', 'vizdatabase.csv', d3.autoType).then(data => {
+
+    // Create the repo array
+      const repo = data.map(d => {
+      const songDiv = document.createElement('div');
+      songDiv.classList.add('tu_song');
+      songDiv.style.display = 'none';
+
+      const title = document.createElement('p');
+      title.className = 'cancion';
+      title.textContent = d.cancion; // replace 'song' with the actual column name in your CSV file
+      songDiv.appendChild(title);
+
+      const artist = document.createElement('p');
+      artist.className = 'artista';
+      artist.textContent = d.artista; // replace 'artist' with the actual column name in your CSV file
+      songDiv.appendChild(artist);
+
+      return songDiv;
+    });
+
     let chart = Plot.plot({
       width: 800,
       height: 400,
@@ -600,6 +696,10 @@ function updatePlot() {
     d3.select('#grafico').html(''); // Clear the previous chart
     d3.select('#grafico').append(() => chart);
     const chartContainer = d3.select('#grafico').node();
+    repo.forEach(songDiv=>{
+      chartContainer.appendChild(songDiv);
+    });
+    /*
     chartContainer.appendChild(mi_song);
     chartContainer.appendChild(mi_song2);
     chartContainer.appendChild(mi_song3);
@@ -615,11 +715,11 @@ function updatePlot() {
     chartContainer.appendChild(mi_song13);
     chartContainer.appendChild(mi_song14);
     chartContainer.appendChild(mi_song15);
-
+*/
 
     d3.selectAll('circle')
-      .on('mouseover', handleMouseOver)
-      .on('mouseout', handleMouseOut);
+    .on('mouseover', (d, i) => handleMouseOver(i)) // Pass the index 'i' to handleMouseOver
+    .on('mouseout', handleMouseOut);
   });
 }
 
@@ -630,6 +730,8 @@ updatePlot();
 setInterval(updatePlot, 5000);
 
 let index = 0;
+
+/*
 function handleMouseOver(d, i) {
   d3.select(this).style('opacity', 0.7);
   let j = Math.floor(Math.random() * 15);
@@ -642,5 +744,39 @@ function handleMouseOut(d, i) {
   repo[index].style.display = 'none';
   d3.select(this).style('opacity', 1);
 }
+*/
+
+function handleMouseOver(d, i) {
+  d3.select(this).style('opacity', 0.7);
+
+  // Use the index or id from your data to select the correct tooltip
+  let j = d.index || d.id;
 
 
+  // Update the tooltip position and content
+  tooltip.transition()
+      .duration(200)
+      .style("opacity", .9);
+  tooltip.html(repo[j].innerHTML)
+      .style("left", (d3.event.pageX) + "px")
+      .style("top", (d3.event.pageY - 28) + "px");
+
+  // Show the tooltip
+  tooltip.style("display", "block");
+
+}
+
+// In your mouseout function
+function handleMouseOut(d, i) {
+  d3.select(this).style('opacity', 1);
+
+
+  // Hide the tooltip
+  tooltip.transition()
+      .duration(500)
+      .style("opacity", 0)
+      .on("end", () => {
+        // Hide the tooltip after the transition is complete
+        tooltip.style("display", "none");
+      });
+    }

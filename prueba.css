@@ -32,9 +32,78 @@ body {
         color: #b459e9; }
   
 
+#readyButton{
+
+      background: linear-gradient(to bottom right, #9047ef, #d21b73);
+      border: 0;
+      border-radius: 12px;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 2.5;
+      outline: transparent;
+      padding: 0 1rem;
+      text-align: center;
+      text-decoration: none;
+      transition: box-shadow .2s ease-in-out;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #9047ef, #d21b73);
+  }
+  
+  input[type=range]::-moz-range-track {
+    background: linear-gradient(to right, #9047ef, #d21b73);
+  }
+  
+  input[type=range]::-ms-track {
+    background: linear-gradient(to right, #9047ef, #d21b73);
+  }
+  
+
+#nextButton{
+    background: linear-gradient(to bottom right, #9047ef, #d21b73);
+      border: 0;
+      border-radius: 12px;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 2.5;
+      outline: transparent;
+      padding: 0 1rem;
+      text-align: center;
+      text-decoration: none;
+      transition: box-shadow .2s ease-in-out;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+}
+
+.percentage {
+  position:relative;
+  top: 20px; /* adjust as needed */
+  right: 10px; /* adjust as needed */
+  font-size: 16px;
+  color: #861275;
+  font-weight:600;
+}
+
 .container{
     text-align: center;
 }
+
 
 li{
     display: inline-flex;
@@ -188,7 +257,7 @@ section{
   opacity: 0;
   transition: opacity 0.3s;
 }
-
+/*
 .boton{
     background-color:rgb(178, 72, 148);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -205,6 +274,22 @@ section{
 .boton:hover{
     background-color:#861275;
 }
+*/
+
+.tooltip {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  
+  
+
 
 input[type="range"] {
     -webkit-appearance: none;

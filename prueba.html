@@ -50,9 +50,10 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
-
+  <div id="intro">
   <p>Acompañanos en el proceso de crear tu propia canción!</p>
   <p>Tomando aspectos clave de una canción como su género, danzabiliad, etc. modelaremos a partir de nuestra gran base de datos la canción indicada para vos!</p>
+</div>
 
   <h2>Elige el género de tu canción</h2>
   <div id="container"></div>
@@ -61,12 +62,13 @@
 
   <h2 style="margin-bottom: 50px">Elige danzabilidad</h2>
   <div id="imageContainer"></div>
-  <ul style="margin-left: -40px">
-    <li style="margin-left: -39.6666px;">0 - 0.25</li>
-    <li>0.25 - 0.50</li>
-    <li>0.50 - 0.75</li>
-    <li>0.75 - 1</li>
+  <ul style="margin-left: -90px; display: flex; justify-content: space-between; padding: 0 10%;">
+    <li style="text-align: center; width: 20%; white-space: nowrap;">0 - 0.25</li>
+    <li style="text-align: center; width: 20%; white-space: nowrap;">0.25 - 0.50</li>
+    <li style="text-align: center; width: 20%; white-space: nowrap;">0.50 - 0.75</li>
+    <li style="text-align: center; width: 20%; white-space: nowrap;">0.75 - 1</li>
   </ul>
+
   <p style="margin-bottom: 200px;"></p>
   <section id="section-2" class="step"></section>
 
