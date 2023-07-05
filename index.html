@@ -1,41 +1,39 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="prueba.css" />
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://unpkg.com/scrollama@2.2.0/build/scrollama.min.js"></script>
   <!DOCTYPE html>
   <html>
-    <link rel="stylesheet" href="prueba.css" />
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://unpkg.com/scrollama@2.2.0/build/scrollama.min.js"></script>
-    <link rel="stylesheet" href="prueba.css" />
+    <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
-    <!-- Required meta tags -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link href="header/https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap" rel="stylesheet">
     
-    <!-- Style -->
-    <link rel="stylesheet" href="prueba.css">
     <title>Armá tu Canción!</title>
     <link rel="icon" href="imagenes/mini.png">
 
 </head>
     <body>
 
+
+
       <header class="site-navbar site-navbar-target bg-white" role="banner">
 
-        <div class="container"  style="margin-top: 130px;">
+        <div class="container" style="margin-top: 130px;">
           <div class="row align-items-center position-relative">
             <div class="col-lg-4 text-center">
               <div class="site-logo">
-                <a>Armá tu canción</a>
+                <a>Armá tu propia canción!</a>
               </div>
               <div class="ml-auto toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3 text-black"></span></a></div>
             </div>
@@ -50,19 +48,18 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
-  <div id="intro" style="margin-bottom: 200px;">
-  <p>Acompañanos en el proceso de crear tu propia canción!</p>
-  <p>La música forma una gran parte de nuestras vidas, nos acompaña en los momentos díficles y en los felices, y nos ayuda a crecer y definir nuestra identidad. Entonces surge la importancia de encontrar una canción afín a nuestros gustos. Tomando aspectos clave de una canción como su género, danzabiliad, etc. modelaremos a partir de nuestra gran base de datos la canción indicada para vos!</p>
+  <div id="intro" style="margin-bottom: 270px;">
+  <p style="font-size: 17; margin-bottom: 50px;">La música forma una gran parte de nuestras vidas, nos acompaña en los momentos díficles y en los felices, y nos ayuda a crecer y definir nuestra identidad. Entonces, surge la importancia de encontrar una canción afín a nuestros gustos.Tomando aspectos clave de una canción como su género, danzabiliad, etc. modelaremos a partir de nuestra gran base de datos la canción indicada para vos!</p>
 </div>
 
   <section id="section-1" class="step"></section>
-  <h2 style="margin-top: 220px;">Elige el género de tu canción</h2>
+  <h2 style="margin-top: 290px;">Elige el género de tu canción</h2>
   <p style="margin-bottom: 30px">El género de una canción se define a partir de múltiples aspectos: su función, instrumentación, ritmo, contexto social, etc. Define el alma de tu canción. </p>
   <div id="container"></div>
   <p style="margin-bottom: 150px;"></p>
-
+  
   <section id="section-2" class="step"></section>
-  <h2 style="margin-top: 220px;">Elige la danzabilidad</h2>
+  <h2 style="margin-top: 240px;">Elige la danzabilidad</h2>
   <p style="margin-bottom: 50px">La danzabilidad de una canción se determina en función de elementos musicales como el tempo, la estabilidad del ritmo y la fuerza del ritmo. A mayor porcentaje, mayor danzabilidad.</p>
   <div id="imageContainer"></div>
   <ul style="margin-left: -90px; display: flex; justify-content: space-between; padding: 0 10%;">
@@ -71,16 +68,16 @@
     <li style="text-align: center; width: 20%; white-space: nowrap;">0.50 - 0.75</li>
     <li style="text-align: center; width: 20%; white-space: nowrap;">0.75 - 1</li>
   </ul>
-  <p style="margin-bottom: 200px;"></p>
+  <p style="margin-bottom: 250px;"></p>
 
   <section id="section-3" class="step"></section>
-  <h2 style="margin-top: 220px;">Elige la popularidad y la acústica</h2>
+  <h2 style="margin-top: 310px;">Elige la popularidad y la acústica</h2>  
   <p style="margin-bottom: -25px;">Continuemos definiendo particularidades de tu canción, ¿prefieres la música <em>under</em> o <em>mainstream</em>?¿Buscas un sonido más natural o electrónico?</p>
   <div id="container3"></div>
   <p style="margin-bottom: 200px;"></p>
 
   <section id="section-4" class="step"></section>
-  <h2 style="margin-top: 220px;">Elige la explicitud</h2>
+  <h2 style="margin-top: 280px;">Elige la explicitud</h2>
   <p>La música es una forma de expresión, y dicha expresión puede contener lenguaje vulgar, referencias sexuales y violencia. Si no te sientes cómodo con dichos elementos, no aparecerán en tu canción.</p>
   <div id="container5"></div>
   <ul style="margin-left: -20px">
@@ -93,15 +90,21 @@
   <h2 style="margin-top: 260px;">Tu canción está lista!</h2>
   <p style="margin-bottom: 50px;">Felicidades! Has generado tu propia canción. La espera valió la pena, es hora de disfrutarla! </p>
   <div id="container4"></div>
-  <p style="margin-bottom: 200px;"></p>
+  <p style="margin-bottom: 280px;"></p>
 
-  <h2>Vecindario de canciones</h2>
+  <section id="section-6" class="step"></section>
+  <h2 style="margin-top: 300px;">Vecindario de canciones</h2>
+  <div id="vec">
   <p>En el gráfico interactivo a continuación se pueden observar las canciones favoritas de nuestrar tres autoras, junto con tu propia canción. Te invitamos a explorarlo! </p>
-  <div id="grafico"></div>
-  <p style="margin-bottom: 200px;"></p>
+  </div>
+  <div id="hovereada">¿Qué canción es esta?</div>
+  <div id="linea">|</div>
+  <div id="containergraf" style="display: flex; justify-content: space-between;margin-top: -90px;">
+    <div id="grafico"></div>
+    <div id="song-info"></div>
+  </div>
 
-
-  <script src="prueba.js"></script>
+  <script src="script.js"></script>
 
 
 </section>

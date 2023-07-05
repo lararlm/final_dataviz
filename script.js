@@ -228,6 +228,7 @@ const percentage1 = document.createElement('span');
 percentage1.classList.add('percentage'); // Add class
 container3.appendChild(percentage1);
 
+
 const slider1 = document.createElement('input');
 let pop = 0;
 slider1.type = 'range';
@@ -273,8 +274,6 @@ txt2.textContent = 'Acústica';
 txt2.style.marginTop = "-20px";
 container3.appendChild(txt2);
 
-let slider1Clicked = false;
-let slider2Clicked = false;
 
 function handleSliderChange1(event) {
   sliderValue1 = event.target.value;
@@ -282,8 +281,6 @@ function handleSliderChange1(event) {
   console.log(pop);
   // Update the percentage value
   percentage1.textContent = `${sliderValue1}%`;
-  slider1Clicked = true;
-  checkSliders();
 }
 
 function handleSliderChange2(event) {
@@ -291,19 +288,8 @@ function handleSliderChange2(event) {
   acoust = event.target.value;
   // Update the percentage value
   percentage2.textContent = `${sliderValue2}%`;
-  slider2Clicked = true;
-  checkSliders();
 }
 
-
-function checkSliders() {
-  if (slider1Clicked && slider2Clicked) {
-    var section3 = document.getElementById("section-4");
-    section3.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-/*
 // Create a new div for the button
 var buttonContainer = document.createElement("div");
 buttonContainer.style.display = "flex";
@@ -321,13 +307,13 @@ button.style.margin = "0 auto";
 
 // Add click event listener to scroll to section2
 button.addEventListener("click", function() {
-  var section3 = document.getElementById("section-3");
+  var section3 = document.getElementById("section-4");
   section3.scrollIntoView({ behavior: 'smooth' });
 });
 
 // Append the button to the body
 container3.appendChild(button);
-*/
+
 
 //////////explicit
 
@@ -385,6 +371,26 @@ falsei.addEventListener('click', () => {
   section4.scrollIntoView({ behavior: 'smooth' });
 });
 
+
+// Create the button
+var readyButtonV = document.createElement("button");
+readyButtonV.textContent = "Nuestras canciones";
+readyButtonV.classList.add('readyButton');
+readyButtonV.id = "botonvecindario"; // Add an id to your button
+
+// Add the style changes
+readyButtonV.style.display = "block";
+readyButtonV.style.margin = "0 auto";
+
+// Add click event listener to scroll to the genre choosing section
+readyButtonV.addEventListener("click", function() {
+  var genreSection = document.getElementById("section-6"); // Replace "genre-section" with the id of your genre choosing section
+  genreSection.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Append the button to the intro container
+container4.appendChild(readyButtonV);
+
 ///////////////your song
 /*
 d3.csv('vizdatabase.csv', d3.autoType).then(data => {
@@ -425,9 +431,7 @@ d3.csv('vizdatabase.csv', d3.autoType).then(data => {
     .append('span')
     .text('% popularidad')
 })*/
-
 ///////////////hover
-/*
 const mi_song = document.createElement('div');
 mi_song.classList.add('tu_song');
 mi_song.style.display = 'none';
@@ -639,41 +643,11 @@ art15.textContent = 'Spice Girls';
 mi_song15.appendChild(art15);
 
 const repo = [mi_song, mi_song2, mi_song3, mi_song4, mi_song5,mi_song6,mi_song7,mi_song8,mi_song9,mi_song10,mi_song11,mi_song12,mi_song13,mi_song14,mi_song15];
-
-*/
 /////////vecindario de canciones
-
-// Create a tooltip div
-const tooltip = d3.select("body")
-    .append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
-
 function updatePlot() {
   d3.dsv(',', 'vizdatabase.csv', d3.autoType).then(data => {
-
-    // Create the repo array
-      const repo = data.map(d => {
-      const songDiv = document.createElement('div');
-      songDiv.classList.add('tu_song');
-      songDiv.style.display = 'none';
-
-      const title = document.createElement('p');
-      title.className = 'cancion';
-      title.textContent = d.cancion; // replace 'song' with the actual column name in your CSV file
-      songDiv.appendChild(title);
-
-      const artist = document.createElement('p');
-      artist.className = 'artista';
-      artist.textContent = d.artista; // replace 'artist' with the actual column name in your CSV file
-      songDiv.appendChild(artist);
-
-      return songDiv;
-    });
-
     let chart = Plot.plot({
-      width: 800,
+      width: 700,
       height: 400,
       inset : 20,
       marks: [
@@ -686,7 +660,7 @@ function updatePlot() {
         Plot.dot(data, {
           x: () => pop,
           y: () => acoust,
-          fill: "#000000",
+          fill: "#EC0E49",
           r: 4,
         }),
         Plot.text(data, {
@@ -701,45 +675,52 @@ function updatePlot() {
       ],
       y:{
         domain: [0,100],
-        label: "Acústica",
+        label: "% Acústica",
+        ticks: 6,
+        labelOffset: 25,
+        labelArrow: "none",
       },
       x:{
         domain: [0,100],
-        label: "Popularidad",
+        label: "% Popularidad",
+        ticks:6,
+        labelOffset: 30,
+        labelArrow: "none",
       },
+      marginBottom: 50,
+      marginTop: 5,
+      marginRight: -10,
       color:{
         range: ['#EDAE29', '#861275', '#10A7A0'],
         legend: true,
+        marginLeft: 20,
       }
     });
 
     d3.select('#grafico').html(''); // Clear the previous chart
     d3.select('#grafico').append(() => chart);
-    const chartContainer = d3.select('#grafico').node();
-    repo.forEach(songDiv=>{
-      chartContainer.appendChild(songDiv);
-    });
-    /*
-    chartContainer.appendChild(mi_song);
-    chartContainer.appendChild(mi_song2);
-    chartContainer.appendChild(mi_song3);
-    chartContainer.appendChild(mi_song4);
-    chartContainer.appendChild(mi_song5);
-    chartContainer.appendChild(mi_song6);
-    chartContainer.appendChild(mi_song7);
-    chartContainer.appendChild(mi_song8);
-    chartContainer.appendChild(mi_song9);
-    chartContainer.appendChild(mi_song10);
-    chartContainer.appendChild(mi_song11);
-    chartContainer.appendChild(mi_song12);
-    chartContainer.appendChild(mi_song13);
-    chartContainer.appendChild(mi_song14);
-    chartContainer.appendChild(mi_song15);
-*/
+    //const chartContainer = d3.select('#grafico').node();
+    const songContainer = document.getElementById('song-info');
+    songContainer.appendChild(mi_song);
+    songContainer.appendChild(mi_song2);
+    songContainer.appendChild(mi_song3);
+    songContainer.appendChild(mi_song4);
+    songContainer.appendChild(mi_song5);
+    songContainer.appendChild(mi_song6);
+    songContainer.appendChild(mi_song7);
+    songContainer.appendChild(mi_song8);
+    songContainer.appendChild(mi_song9);
+    songContainer.appendChild(mi_song10);
+    songContainer.appendChild(mi_song11);
+    songContainer.appendChild(mi_song12);
+    songContainer.appendChild(mi_song13);
+    songContainer.appendChild(mi_song14);
+    songContainer.appendChild(mi_song15);
+
 
     d3.selectAll('circle')
-    .on('mouseover', (d, i) => handleMouseOver(i)) // Pass the index 'i' to handleMouseOver
-    .on('mouseout', handleMouseOut);
+      .on('mouseover', handleMouseOver)
+      .on('mouseleave', handleMouseOut);
   });
 }
 
@@ -751,52 +732,20 @@ setInterval(updatePlot, 5000);
 
 let index = 0;
 
-/*
 function handleMouseOver(d, i) {
   d3.select(this).style('opacity', 0.7);
   let j = Math.floor(Math.random() * 15);
+  const infoBox = document.getElementById('infobox');
   repo[j].style.display = 'block';
   index = j;
 
 }
 
-function handleMouseOut(d, i) {
-  repo[index].style.display = 'none';
-  d3.select(this).style('opacity', 1);
-}
-*/
 
-function handleMouseOver(d, i) {
-  d3.select(this).style('opacity', 0.7);
-
-  // Use the index or id from your data to select the correct tooltip
-  let j = d.index || d.id;
-
-
-  // Update the tooltip position and content
-  tooltip.transition()
-      .duration(200)
-      .style("opacity", .9);
-  tooltip.html(repo[j].innerHTML)
-      .style("left", (d3.event.pageX) + "px")
-      .style("top", (d3.event.pageY - 28) + "px");
-
-  // Show the tooltip
-  tooltip.style("display", "block");
-
-}
-
-// In your mouseout function
 function handleMouseOut(d, i) {
   d3.select(this).style('opacity', 1);
+  // Add a delay before hiding the div.
+    repo[index].style.display = 'none';
+}
 
 
-  // Hide the tooltip
-  tooltip.transition()
-      .duration(500)
-      .style("opacity", 0)
-      .on("end", () => {
-        // Hide the tooltip after the transition is complete
-        tooltip.style("display", "none");
-      });
-    }

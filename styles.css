@@ -13,6 +13,7 @@ body {
 /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Helvetica, sans-serif; */
 }
 
+
   p {
     color: #4f4d4d;
     font-weight: 00; }
@@ -21,20 +22,80 @@ body {
     z-index: 1999;
     position: relative;
     top: 0;
-    width: 100%;
+    width: 800px;
     padding: 1rem; }
     .site-navbar .site-logo {
       margin: 0;
       padding: 0;
       font-weight: 600;
-      font-size: 1.7rem; }
+      font-size: 2.2rem; }
       .site-navbar .site-logo a {
-        color: #b459e9; }
+        color: #a8239f; }
   
+#vec{
+  position:relative;
+  width:500;
+}
+
+#hovereada{
+  position:relative;
+  top:-80px;
+  right:-275px
+}
+#containergraf {
+    position: relative;  
+    
+}
+
+#linea{
+    font-weight: 100;
+    font-size: 3.5rem;
+    position: relative;
+    top: -110;
+    right:-130;
+}
+
+#song-info {
+    position: absolute; 
+    top:-45px;  
+    right: 115px;  
+    display: flex;
+    line-height: 0.5;
+    max-width: 300px;
+    max-height: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+#botonvecindario{
+  background: linear-gradient(to bottom right, #861275,#10A7A0, #EDAE29 );
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  position:relative;
+  top:100;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
 
 #readyButton{
-
-      background: linear-gradient(to bottom right, #9047ef, #d21b73);
+    background: linear-gradient(to bottom right, #861275,#10A7A0, #EDAE29 );
       border: 0;
       border-radius: 12px;
       color: #FFFFFF;
@@ -57,7 +118,7 @@ body {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, #9047ef, #d21b73);
+    background: linear-gradient(to right, #EDAE29, #861275);
   }
   
   input[type=range]::-moz-range-track {
@@ -70,7 +131,7 @@ input[type=range]::-webkit-slider-runnable-track {
   
 
 #nextButton{
-    background: linear-gradient(to bottom right, #9047ef, #d21b73);
+    background: linear-gradient(to bottom right, #861275,#10A7A0, #EDAE29 );
       border: 0;
       border-radius: 12px;
       color: #FFFFFF;
@@ -96,7 +157,7 @@ input[type=range]::-webkit-slider-runnable-track {
   top: 20px; /* adjust as needed */
   right: 10px; /* adjust as needed */
   font-size: 16px;
-  color: #861275;
+  color:#a8239f;
   font-weight:600;
 }
 
@@ -277,20 +338,12 @@ section{
 }
 */
 
-.tooltip {
+#infobox {
     position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    white-space: nowrap;
+ /* The x-coordinate where you want the box to appear */;
+ /* The y-coordinate where you want the box to appear */;
+    /* Other styles for the info box */
   }
-  
-  
-
 
 input[type="range"] {
     -webkit-appearance: none;
@@ -317,9 +370,9 @@ input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     height: 60px;
     width: 10px;
-    background-color: #861275;
+    background-color: #a8239f;
     border-radius: 0%;
-    box-shadow: -407px 0 0 400px rgb(178, 72, 148);
+    box-shadow: -407px 0 0 400px #a8239f;;
 
   }
 
