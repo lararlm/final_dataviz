@@ -23,7 +23,7 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="prueba.css">
-    <title>Armá tu Cancion!</title>
+    <title>Armá tu Canción!</title>
     <link rel="icon" href="imagenes/mini.png">
 
 </head>
@@ -31,11 +31,11 @@
 
       <header class="site-navbar site-navbar-target bg-white" role="banner">
 
-        <div class="container">
+        <div class="container"  style="margin-top: 130px;">
           <div class="row align-items-center position-relative">
             <div class="col-lg-4 text-center">
               <div class="site-logo">
-                <a>Armá tu cancion</a>
+                <a>Armá tu canción</a>
               </div>
               <div class="ml-auto toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3 text-black"></span></a></div>
             </div>
@@ -50,17 +50,20 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
-  <div id="intro">
+  <div id="intro" style="margin-bottom: 200px;">
   <p>Acompañanos en el proceso de crear tu propia canción!</p>
-  <p>Tomando aspectos clave de una canción como su género, danzabiliad, etc. modelaremos a partir de nuestra gran base de datos la canción indicada para vos!</p>
+  <p>La música forma una gran parte de nuestras vidas, nos acompaña en los momentos díficles y en los felices, y nos ayuda a crecer y definir nuestra identidad. Entonces surge la importancia de encontrar una canción afín a nuestros gustos. Tomando aspectos clave de una canción como su género, danzabiliad, etc. modelaremos a partir de nuestra gran base de datos la canción indicada para vos!</p>
 </div>
 
-  <h2>Elige el género de tu canción</h2>
-  <div id="container"></div>
   <section id="section-1" class="step"></section>
+  <h2 style="margin-top: 220px;">Elige el género de tu canción</h2>
+  <p style="margin-bottom: 30px">El género de una canción se define a partir de múltiples aspectos: su función, instrumentación, ritmo, contexto social, etc. Define el alma de tu canción. </p>
+  <div id="container"></div>
   <p style="margin-bottom: 150px;"></p>
 
-  <h2 style="margin-bottom: 50px">Elige danzabilidad</h2>
+  <section id="section-2" class="step"></section>
+  <h2 style="margin-top: 220px;">Elige la danzabilidad</h2>
+  <p style="margin-bottom: 50px">La danzabilidad de una canción se determina en función de elementos musicales como el tempo, la estabilidad del ritmo y la fuerza del ritmo. A mayor porcentaje, mayor danzabilidad.</p>
   <div id="imageContainer"></div>
   <ul style="margin-left: -90px; display: flex; justify-content: space-between; padding: 0 10%;">
     <li style="text-align: center; width: 20%; white-space: nowrap;">0 - 0.25</li>
@@ -68,16 +71,17 @@
     <li style="text-align: center; width: 20%; white-space: nowrap;">0.50 - 0.75</li>
     <li style="text-align: center; width: 20%; white-space: nowrap;">0.75 - 1</li>
   </ul>
-
-  <p style="margin-bottom: 200px;"></p>
-  <section id="section-2" class="step"></section>
-
-  <h2 style="margin-bottom: -10px;">Elige la popularidad y la acústica</h2>
-  <div id="container3"></div>
   <p style="margin-bottom: 200px;"></p>
 
   <section id="section-3" class="step"></section>
-  <h2>Elige si es explícito o no</h2>
+  <h2 style="margin-top: 220px;">Elige la popularidad y la acústica</h2>
+  <p style="margin-bottom: -25px;">Continuemos definiendo particularidades de tu canción, ¿prefieres la música <em>under</em> o <em>mainstream</em>?¿Buscas un sonido más natural o electrónico?</p>
+  <div id="container3"></div>
+  <p style="margin-bottom: 200px;"></p>
+
+  <section id="section-4" class="step"></section>
+  <h2 style="margin-top: 220px;">Elige la explicitud</h2>
+  <p>La música es una forma de expresión, y dicha expresión puede contener lenguaje vulgar, referencias sexuales y violencia. Si no te sientes cómodo con dichos elementos, no aparecerán en tu canción.</p>
   <div id="container5"></div>
   <ul style="margin-left: -20px">
     <li style="margin-right: 10px;">Explícito</li>
@@ -85,9 +89,10 @@
   </ul>
   <p style="margin-bottom: 200px;"></p>
 
-  <h2 style="margin-bottom: 50px;">Tu canción está lista!</h2>
+  <section id="section-5" class="step"></section>
+  <h2 style="margin-top: 260px;">Tu canción está lista!</h2>
+  <p style="margin-bottom: 50px;">Felicidades! Has generado tu propia canción. La espera valió la pena, es hora de disfrutarla! </p>
   <div id="container4"></div>
-  <section id="section-4" class="step"></section>
   <p style="margin-bottom: 200px;"></p>
 
   <h2>Vecindario de canciones</h2>

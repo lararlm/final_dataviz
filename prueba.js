@@ -95,7 +95,7 @@ readyButton.style.margin = "0 auto";
 
 // Add click event listener to scroll to the genre choosing section
 readyButton.addEventListener("click", function() {
-  var genreSection = document.getElementById("container"); // Replace "genre-section" with the id of your genre choosing section
+  var genreSection = document.getElementById("section-1"); // Replace "genre-section" with the id of your genre choosing section
   genreSection.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -130,7 +130,7 @@ for (let i = 0; i < circleTexts.length; i++) {
   // Add click event listener to circles
   circle.addEventListener('click', () => {
     clickedElement = circleColors[i % circleColors.length];
-    var section1 = document.getElementById("section-1");
+    var section1 = document.getElementById("section-2");
     section1.scrollIntoView({ behavior: 'smooth' });
 });
 }
@@ -170,7 +170,7 @@ img.classList.add('img-0');
 imageContainer.appendChild(img);
 img.addEventListener('click', () => {
     danza = 1;
-    var section2 = document.getElementById("section-2");
+    var section2 = document.getElementById("section-3");
     section2.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -181,7 +181,7 @@ img1.classList.add('img-1');
 imageContainer.appendChild(img1);
 img1.addEventListener('click', () => {
   danza = 2;
-  var section2 = document.getElementById("section-2");
+  var section2 = document.getElementById("section-3");
   section2.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -192,7 +192,7 @@ img2.classList.add('img-2');
 imageContainer.appendChild(img2);
 img2.addEventListener('click', () => {
   danza = 3;
-  var section2 = document.getElementById("section-2");
+  var section2 = document.getElementById("section-3");
   section2.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -203,7 +203,7 @@ img3.classList.add('img-3');
 imageContainer.appendChild(img3);
 img3.addEventListener('click', () => {
   danza = 4;
-  var section2 = document.getElementById("section-2");
+  var section2 = document.getElementById("section-3");
   section2.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -238,6 +238,12 @@ slider1.addEventListener('input', handleSliderChange1);
 slider1.classList.add('slider-pink');
 container3.appendChild(slider1);
 
+const txt = document.createElement('p');
+txt.textContent = 'Popularidad';
+txt.style.marginTop = "-20px";
+txt.style.marginBottom = "-35px";
+container3.appendChild(txt);
+
 // Bar Graph 2
 const canvas2 = document.createElement('canvas');
 canvas2.width = 500;
@@ -261,6 +267,11 @@ slider2.value = sliderValue2;
 slider2.addEventListener('input', handleSliderChange2);
 slider2.classList.add('slider-celeste');
 container3.appendChild(slider2);
+
+const txt2 = document.createElement('p');
+txt2.textContent = 'Acústica';
+txt2.style.marginTop = "-20px";
+container3.appendChild(txt2);
 
 let slider1Clicked = false;
 let slider2Clicked = false;
@@ -287,7 +298,7 @@ function handleSliderChange2(event) {
 
 function checkSliders() {
   if (slider1Clicked && slider2Clicked) {
-    var section3 = document.getElementById("section-3");
+    var section3 = document.getElementById("section-4");
     section3.scrollIntoView({ behavior: 'smooth' });
   }
 }
@@ -342,7 +353,7 @@ truei.addEventListener('click', () => {
     }
     mi_circle.style.backgroundColor = clickedElement;
     tu_song.style.opacity = 1;
-    var section4 = document.getElementById("section-4");
+    var section4 = document.getElementById("section-5");
     section4.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -370,7 +381,7 @@ falsei.addEventListener('click', () => {
   }
   mi_circle.style.backgroundColor = clickedElement;
   tu_song.style.opacity = 1;
-  var section4 = document.getElementById("section-4");
+  var section4 = document.getElementById("section-5");
   section4.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -678,6 +689,15 @@ function updatePlot() {
           fill: "#000000",
           r: 4,
         }),
+        Plot.text(data, {
+          x: () => pop,
+          y: () => acoust,
+          text:["Vos!"], 
+          dy: -15,
+          dx: 0, 
+          fontSize: 14,
+          fill: "#000000"
+        })
       ],
       y:{
         domain: [0,100],

@@ -155,6 +155,7 @@ section{
 }
 
 .artist{
+    margin-top: -10px;
     font-size: 16px;
     font-style: italic;
 }
@@ -321,3 +322,4 @@ input[type="range"]::-webkit-slider-thumb {
     box-shadow: -407px 0 0 400px rgb(178, 72, 148);
 
   }
+
